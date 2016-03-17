@@ -36,6 +36,6 @@ public class TopoMain {
 		conf.setDebug(true);
 		conf.setNumAckers(0);
 		//将这个topology提交给storm集群运行
-		StormSubmitter.submitTopology("demotopo", conf, demotop);
+		StormSubmitter.submitTopology("demotop", conf, demotop);
 	}
 }
