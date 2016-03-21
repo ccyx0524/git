@@ -20,7 +20,7 @@ public class HabaseMR {
 		Configuration conf = HBaseConfiguration.create();
 		Job job = new Job(conf, "maperduce on habase");
 		job.setJarByClass(HabaseMR.class);
-
+		///
 	}
 
 	public class Mapper extends TableMapper<Text, Text> {
