@@ -10,7 +10,7 @@ import backtype.storm.topology.TopologyBuilder;
 public class TopoMain {
 	public static void main(String[] args) throws Exception {
 		TopologyBuilder builder=new TopologyBuilder();
-		
+		//
 		//将我们的spout组件设置到topology中去 
 		//parallelism_hint ：4  表示用4个excutor来执行这个组件
 		//setNumTasks(8) 设置的是该组件执行时的并发task数量，也就意味着1个excutor会运行2个task
