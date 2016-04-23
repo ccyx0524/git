@@ -30,10 +30,10 @@ public class HdfsUtil {
 		Configuration conf = new Configuration();
 		
 		//也可以在代码中对conf中的配置信息进行手动设置，会覆盖掉配置文件中的读取的值
-		conf.set("fs.defaultFS", "hdfs://weekend110:9000/");
+		conf.set("fs.defaultFS", "hdfs://192.168.26.26:9000/");
 		
 		//根据配置信息，去获取一个具体文件系统的客户端操作实例对象
-		fs = FileSystem.get(new URI("hdfs://weekend110:9000/"),conf,"hadoop");
+		fs = FileSystem.get(new URI("hdfs://192.168.26.26:9000/"),conf,"hadoop");
 		
 		
 	}
@@ -49,15 +49,15 @@ public class HdfsUtil {
 	public void upload() throws Exception {
 
 		Configuration conf = new Configuration();
-		conf.set("fs.defaultFS", "hdfs://weekend110:9000/");
+		conf.set("fs.defaultFS", "hdfs://192.168.26.26:9000/");
 		
 		FileSystem fs = FileSystem.get(conf);
 		
-		Path dst = new Path("hdfs://weekend110:9000/aa/qingshu.txt");
+		Path dst = new Path("hdfs://192.168.26.26:9000/user/hdfs/recommend/qingshu.txt");
 		
 		FSDataOutputStream os = fs.create(dst);
 		
-		FileInputStream is = new FileInputStream("c:/qingshu.txt");
+		FileInputStream is = new FileInputStream("c:/small2.txt");
 		
 		IOUtils.copy(is, os);
 		
@@ -72,7 +72,7 @@ public class HdfsUtil {
 	@Test
 	public void upload2() throws Exception, IOException{
 		
-		fs.copyFromLocalFile(new Path("c:/qingshu.txt"), new Path("hdfs://weekend110:9000/aaa/bbb/ccc/qingshu2.txt"));
+		fs.copyFromLocalFile(new Path("c:/small2.txt"), new Path("hdfs://192.168.26.26:9000/user/hdfs/recommend/small3.txt"));
 		
 	}
 	
@@ -85,7 +85,7 @@ public class HdfsUtil {
 	@Test
 	public void download() throws Exception {
 		
-		fs.copyToLocalFile(new Path("hdfs://weekend110:9000/aa/qingshu2.txt"), new Path("c:/qingshu2.txt"));
+		fs.copyToLocalFile(new Path("hdfs://192.168.26.26:9000/user/hdfs/recommend/small.csv"), new Path("c:/small2.txt"));
 
 	}
 
@@ -153,7 +153,7 @@ public class HdfsUtil {
 	public static void main(String[] args) throws Exception {
 
 		Configuration conf = new Configuration();
-		conf.set("fs.defaultFS", "hdfs://weekend110:9000/");
+		conf.set("fs.defaultFS", "hdfs://192.168.26.26:9000/");
 		
 		FileSystem fs = FileSystem.get(conf);
 		
