@@ -19,7 +19,7 @@ public class SuffixBolt extends BaseBasicBolt{
 	@Override
 	public void prepare(Map stormConf, TopologyContext context) {
 		try {
-			fileWriter=new FileWriter("/home/hadoop/stormoutput/"+UUID.randomUUID());
+			fileWriter=new FileWriter("c:\\storm-kafka\\random\\"+UUID.randomUUID());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

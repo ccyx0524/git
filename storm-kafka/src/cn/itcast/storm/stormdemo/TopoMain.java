@@ -1,6 +1,7 @@
 package cn.itcast.storm.stormdemo;
 
 import backtype.storm.Config;
+import backtype.storm.LocalCluster;
 import backtype.storm.StormSubmitter;
 import backtype.storm.generated.AlreadyAliveException;
 import backtype.storm.generated.InvalidTopologyException;
@@ -36,6 +37,10 @@ public class TopoMain {
 		conf.setDebug(true);
 		conf.setNumAckers(0);
 		//将这个topology提交给storm集群运行
-		StormSubmitter.submitTopology("demotop", conf, demotop);
+		//StormSubmitter.submitTopology("demotop", conf, demotop);
+		
+		//LocalCluster用来将topology提交到本地模拟器运行，方便开发调试
+		LocalCluster cluster = new LocalCluster();
+		cluster.submitTopology("WordCount", conf, builder.createTopology());
 	}
 }
