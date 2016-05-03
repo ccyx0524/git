@@ -47,7 +47,7 @@ public class ImportFromFile {
 				byte[] rowkey=DigestUtils.md5(lineString);
 				Put put=new Put(rowkey);
 				put.add(family, qualifier, Bytes.toBytes(lineString));
-				context.write(new ImmutableBytesWritable(rowkey),put);
+				//context.write(new ImmutableBytesWritable(rowkey),put);
 				context.getCounter(Counters.LINES).increment(1);
 			}catch(Exception e){
 				e.printStackTrace();
